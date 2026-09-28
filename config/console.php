@@ -5,7 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic-console',
-    'name' => 'KKUEC Submission Online',
+    'name' => 'EC Submission Online',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'th-TH',

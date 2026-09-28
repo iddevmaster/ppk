@@ -12,7 +12,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'echr',
-    'name' => 'KKUEC Online Submission',
+    'name' => 'EC Online Submission',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'languagesDispatcher', 'devicedetect'],
     'language' => 'th-TH',
@@ -128,7 +128,6 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '9a7QGx5jq6ZRYWTVdGugAtfwDwFQA9oJ',
-            'baseUrl' => '/echr',
             'csrfParam' => '_echrCSRF',
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
@@ -187,7 +186,6 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'baseUrl' => '/echr',
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
@@ -232,19 +230,21 @@ $config = [
             'appendTimestamp' => true,
             'bundles' => [
                 'yii\web\JqueryAsset' => [
+                    'baseUrl' => '@web',
                     'sourcePath' => null, // do not publish the bundle
                     'js' => [
-                        '/echr/remark/global/vendor/jquery/jquery.js',
+                        'remark/global/vendor/jquery/jquery.js',
                     ]
                 ],
                 'yii\bootstrap\BootstrapAsset' => [
+                    'baseUrl' => '@web',
                     'depends' => ['yii\web\JqueryAsset'],
                     'sourcePath' => null, // do not publish the bundle
                     'js' => [
-                        '/echr/remark/global/vendor/bootstrap/bootstrap.js',
+                        'remark/global/vendor/bootstrap/bootstrap.js',
                     ],
                     'css' => [
-                        '/echr/remark/global/css/bootstrap.css',
+                        'remark/global/css/bootstrap.css',
                     ]
                 ],
                 'yii\bootstrap\BootstrapPluginAsset' => FALSE,
