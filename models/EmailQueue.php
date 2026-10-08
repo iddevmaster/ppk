@@ -372,12 +372,12 @@ class EmailQueue extends \yii\db\ActiveRecord {
                 if ($pr->submission->refSubmission->resolution == "C") {
                     $committeeRevise = \app\models\SubmissionCommitteeRevise::find()->submission($pr->submission->id)->isDeleted(FALSE)->orderBy('id DESC')->one();
                     if (isset($committeeRevise) && $committeeRevise->resolution == 'C') {
-                        $title = \Yii::t('app', 'ขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ C– ({0}) เพิ่มเติมบางประเด็น  ', [$pr->submission->project->project_code]);
+                        $title = \Yii::t('app', 'ขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ MIN– ({0}) เพิ่มเติมบางประเด็น  ', [$pr->submission->project->project_code]);
                     } else {
-                        $title = \Yii::t('app', 'ขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ C– {0} ', [$pr->submission->project->project_code]);
+                        $title = \Yii::t('app', 'ขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ MIN– {0} ', [$pr->submission->project->project_code]);
                     }
                 } else {
-                    $title = \Yii::t('app', 'ขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ R– ({0}) ', [$pr->submission->project->project_code]);
+                    $title = \Yii::t('app', 'ขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ MAJ– ({0}) ', [$pr->submission->project->project_code]);
                 }
             } else {
                 $title = \Yii::t('app', 'ขอความอนุเคราะห์ประเมินโครงการ {0} ', [$pr->submission->submissionType->name]);

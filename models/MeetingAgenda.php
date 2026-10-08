@@ -360,7 +360,7 @@ res;
                 return '';
             }
             $ma = $this->submission->refSubmission->meetingAgenda;
-            return \Yii::t('app', 'มติ C จากการประชุมครั้งที่ {0} วาระ {1} และโครงการผ่านการรับรองแล้วเมื่อวันที่ {2}', [
+            return \Yii::t('app', 'มติ MIN จากการประชุมครั้งที่ {0} วาระ {1} และโครงการผ่านการรับรองแล้วเมื่อวันที่ {2}', [
                         $ma->meeting->yearNo, $ma->sort_label, \yii::$app->formatter->asDate($ma->submission->certified_date, 'long')
             ]);
         } else if ($type == self::AUTO_TYPE_RESUBMIT) {
@@ -368,7 +368,7 @@ res;
                 return '';
             }
             $ma = $this->submission->refSubmission->meetingAgenda;
-            return \Yii::t('app', 'มติ R จากการประชุมครั้งที่ {0} วาระ {1}', [
+            return \Yii::t('app', 'มติ MAJ จากการประชุมครั้งที่ {0} วาระ {1}', [
                         $ma->meeting->yearNo, $ma->sort_label
             ]);
         } else if ($type == self::AUTO_TYPE_ASSESSMENT) {

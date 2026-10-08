@@ -44,7 +44,7 @@ $currentRole = Yii::$app->session->get('currentRole');
                 $this->render('/submission/index-re', [
                     'searchModel' => $searchModelC,
                     'dataProvider' => $dataProviderC,
-                    'label' => yii::t('app', 'แก้ไขมติ C , มติ R'),
+                    'label' => yii::t('app', 'แก้ไขมติ MIN , มติ MAJ'),
                 ])
                 ?>
             </div>

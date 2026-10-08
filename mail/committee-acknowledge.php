@@ -13,12 +13,12 @@ if (isset($submission->refSubmission)) {
     if ($submission->refSubmission->resolution == "C") {
         $committeeRevise = \app\models\SubmissionCommitteeRevise::find()->submission($submission->id)->isDeleted(FALSE)->orderBy('id DESC')->one();
         if (isset($committeeRevise) && $committeeRevise->resolution == 'C') {
-            $title = \Yii::t('app', 'เรื่อง แจ้งขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ C– ({0}) เพิ่มเติมบางประเด็น  ', [$submission->project->project_code]);
+            $title = \Yii::t('app', 'เรื่อง แจ้งขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ MIN– ({0}) เพิ่มเติมบางประเด็น  ', [$submission->project->project_code]);
         } else {
-            $title = \Yii::t('app', 'เรื่อง แจ้งขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ C– {0} ', [$submission->project->project_code]);
+            $title = \Yii::t('app', 'เรื่อง แจ้งขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ MIN– {0} ', [$submission->project->project_code]);
         }
     } else {
-        $title = \Yii::t('app', 'เรื่อง แจ้งขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ R– ({0}) ', [$submission->project->project_code]);
+        $title = \Yii::t('app', 'เรื่อง แจ้งขอความอนุเคราะห์ประเมินโครงการแก้ไขมติ MAJ– ({0}) ', [$submission->project->project_code]);
     }
 } else {
     if (isset($committee->committeePosition)) {
@@ -43,12 +43,12 @@ if (isset($submission->refSubmission)) {
             ?>
             <p style="text-indent: 50px;">ตามที่อาจารย์ได้ให้ความอนุเคราะห์ประเมินโครงการ  เรื่อง “ <?= $submission->project->name_thai; ?> (<?= $submission->project->name_eng; ?>) ” (<?= $submission->project->project_code ?>)  และได้ให้ข้อเสนอแนะให้นักวิจัยแก้ไขและเพิ่มเติมบางประเด็นนั้น  บัดนี้นักวิจัยได้ชี้แจงต่อข้อคำถามและแก้ไขโครงการกลับมาแล้ว   ศูนย์จริยธรรมฯ จึงใคร่ขอความกรุณาอาจารย์พิจารณาการโครงการวิจัยดังกล่าวอีกครั้ง และส่งผลการประเมินโครงการ ภายในวันที่  <?= $senddate; ?> </p>
         <?php } else { ?>
-            <p style="text-indent: 50px;"> ตามที่โครงการ  เรื่อง “ <?= $submission->project->name_thai; ?> (<?= $submission->project->name_eng; ?>) ” (<?= $submission->project->project_code ?>)  ได้นำเข้าพิจารณาในการประชุมครั้งที่ <?= $submission->refSubmission->meetingAgenda->meeting->yearNo; ?> ที่ประชุมมี มติ รับรองหลังจากผู้วิจัยแก้ไขตามมติที่ประชุม (มติ C) นั้น  บัดนี้นักวิจัยได้ชี้แจงต่อข้อคำถามและแก้ไขโครงการกลับมาแล้ว เนื่องจากอาจารย์ได้รับมอบหมายเป็นตัวแทนคณะกรรมการในการพิจารณาฯ ศูนย์จริยธรรมฯ จึงใคร่ขอความกรุณาพิจารณาการโครงการวิจัยดังกล่าว และส่งผลการประเมินโครงการ ภายในวันที่  <?= $senddate; ?>   </p>
+            <p style="text-indent: 50px;"> ตามที่โครงการ  เรื่อง “ <?= $submission->project->name_thai; ?> (<?= $submission->project->name_eng; ?>) ” (<?= $submission->project->project_code ?>)  ได้นำเข้าพิจารณาในการประชุมครั้งที่ <?= $submission->refSubmission->meetingAgenda->meeting->yearNo; ?> ที่ประชุมมี มติ รับรองหลังจากผู้วิจัยแก้ไขตามมติที่ประชุม (มติ MIN) นั้น  บัดนี้นักวิจัยได้ชี้แจงต่อข้อคำถามและแก้ไขโครงการกลับมาแล้ว เนื่องจากอาจารย์ได้รับมอบหมายเป็นตัวแทนคณะกรรมการในการพิจารณาฯ ศูนย์จริยธรรมฯ จึงใคร่ขอความกรุณาพิจารณาการโครงการวิจัยดังกล่าว และส่งผลการประเมินโครงการ ภายในวันที่  <?= $senddate; ?>   </p>
             <?php
         }
     } else {
         ?>
-        <p style="text-indent: 50px;"> ตามที่อาจารย์ได้ให้ความอนุเคราะห์ประเมินโครงการ เรื่อง “ <?= $submission->project->name_thai; ?> (<?= $submission->project->name_eng; ?>) ” (<?= $submission->project->project_code ?>) และได้ให้ข้อเสนอแนะต่างๆ ไปแล้วนั้น  โครงการดังกล่าวได้นำเข้าพิจารณาในการประชุมครั้งที่ <?= $submission->refSubmission->meetingAgenda->meeting->yearNo; ?> ที่ประชุมมี มติให้ผู้วิจัยชี้แจงต่อข้อคำถามเพื่อนำมาพิจารณาในการประชุมอีกครั้ง (มติ R )  บัดนี้นักวิจัยได้ชี้แจงต่อข้อคำถามและแก้ไขโครงการกลับมาแล้ว   ศูนย์จริยธรรมฯ จึงใคร่ขอความกรุณาอาจารย์พิจารณาการโครงการวิจัยดังกล่าวอีกครั้ง และส่งผลการประเมินโครงการ ภายในวันที่  <?= $senddate; ?>  ทั้งนี้ เพื่อศูนย์จริยธรรมฯ จะได้นำเข้าที่ประชุมเพื่อพิจารณาอีกครั้ง ในวันที่ <?= $meetingdate; ?> </p>
+        <p style="text-indent: 50px;"> ตามที่อาจารย์ได้ให้ความอนุเคราะห์ประเมินโครงการ เรื่อง “ <?= $submission->project->name_thai; ?> (<?= $submission->project->name_eng; ?>) ” (<?= $submission->project->project_code ?>) และได้ให้ข้อเสนอแนะต่างๆ ไปแล้วนั้น  โครงการดังกล่าวได้นำเข้าพิจารณาในการประชุมครั้งที่ <?= $submission->refSubmission->meetingAgenda->meeting->yearNo; ?> ที่ประชุมมี มติให้ผู้วิจัยชี้แจงต่อข้อคำถามเพื่อนำมาพิจารณาในการประชุมอีกครั้ง (มติ MAJ)  บัดนี้นักวิจัยได้ชี้แจงต่อข้อคำถามและแก้ไขโครงการกลับมาแล้ว   ศูนย์จริยธรรมฯ จึงใคร่ขอความกรุณาอาจารย์พิจารณาการโครงการวิจัยดังกล่าวอีกครั้ง และส่งผลการประเมินโครงการ ภายในวันที่  <?= $senddate; ?>  ทั้งนี้ เพื่อศูนย์จริยธรรมฯ จะได้นำเข้าที่ประชุมเพื่อพิจารณาอีกครั้ง ในวันที่ <?= $meetingdate; ?> </p>
 
         <?php
     }

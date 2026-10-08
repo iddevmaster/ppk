@@ -11,7 +11,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model app\models\RegisterTransaction */
 if(isset($submission->ref_submission_id)){
-$this->title = Yii::t('app', 'ยื่นแก้ไขโครงการมติ C, มติ R');
+$this->title = Yii::t('app', 'ยื่นแก้ไขโครงการมติ MIN, มติ MAJ');
 }else{
 $this->title = Yii::t('app', 'ยื่นเสนอโครงการวิจัยใหม่');
 }
